@@ -18,10 +18,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NotesViewModel @Inject constructor(private val noteUseCases : NoteUseCases) : ViewModel(){
+class NotesViewModel @Inject constructor(
+    private val noteUseCases : NoteUseCases
+    ) : ViewModel(){
 
     private val _state = mutableStateOf(NotesState())
-    private val state: State<NotesState> = _state
+    val state: State<NotesState> = _state
 
     private var recentlyDeletedNote : Note? = null
 
